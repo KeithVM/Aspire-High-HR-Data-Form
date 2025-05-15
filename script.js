@@ -46,6 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
 
+        //Validate Gender
+        const gender = document.getElementById('gender').value.trim();
+        if (!gender) {
+            document.getElementById('genderError').textContent = 'Gender is required';
+            isValid = false;
+        }
+
         // Validate Job Title
         const jobTitle = document.getElementById('jobTitle').value.trim();
         if (!jobTitle) {
@@ -84,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             lastName: document.getElementById('lastName').value.trim(),
             email: document.getElementById('email').value.trim(),
             phoneNumber: document.getElementById('phoneNumber').value.trim(),
+            gender: document.getElementById('gender').value.trim(),
             jobTitle: document.getElementById('jobTitle').value.trim(),
             department: document.getElementById('department').value,
             employmentStatus: document.getElementById('employmentStatus').value,
@@ -118,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${entry.firstName}</td>
                 <td>${entry.lastName}</td>
                 <td>${entry.email}</td>
+                <td>${entry.gender}</td>
                 <td>${entry.phoneNumber}</td>
                 <td>${entry.jobTitle}</td>
                 <td>${entry.department}</td>

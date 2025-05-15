@@ -34,6 +34,19 @@
                 <input type="tel" id="phoneNumber" name="phoneNumber">
                 <span class="error-message" id="phoneNumberError"></span>
             </div>
+
+            <div class="form-group">
+                <label for="gender">Gender <span class="required">*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="">Gender</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span class="error-message" id="genderError"></span>
+            </div>
+
+            
             
             <div class="form-group">
                 <label for="jobTitle">Job Title <span class="required">*</span></label>
@@ -94,8 +107,9 @@
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Email</th>
+                        <th>Email-ID</th>
                         <th>Phone Number</th>
+                        <th>Gender</th>
                         <th>Job Title</th>
                         <th>Department</th>
                         <th>Employment Status</th>
