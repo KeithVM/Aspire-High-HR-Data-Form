@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('applicationStatusError').textContent = 'Application Status is required';
             isValid = false;
         }
-        
-        // Validate Start Date
-        const startDate = document.getElementById('startDate').value;
-        if (!startDate) {
-            document.getElementById('startDateError').textContent = 'Start Date is required';
+
+        // Validate Time To Hire
+        const timeToHire = document.getElementById('timeToHire').value;
+        if (!timeToHire) {
+            document.getElementById('timeToHireError').textContent = 'Time To Hire is required';
             isValid = false;
         }
         
@@ -104,8 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             candidateSource: document.getElementById('candidateSource').value,
             applicationStatus: document.getElementById('applicationStatus').value,
             interviewFeedback: document.getElementById('interviewFeedback').value.trim(),
-            startDate: document.getElementById('startDate').value,
-            endDate: document.getElementById('endDate').value
+            timeToHire: document.getElementById('timeToHire').value
         };
     }
     
@@ -140,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${entry.department}</td>
                 <td>${entry.candidateSource}</td>
                 <td>${entry.employmentStatus}</td>
-                <td>${formatDate(entry.startDate)}</td>
+                <td>${entry.timeToHire}</td>
             `;
             
             entriesTableBody.appendChild(row);
