@@ -15,19 +15,37 @@ document.addEventListener('DOMContentLoaded', function() {
             element.textContent = '';
         });
         
-        // Validate Full Name
+        // Validate First Name
         const firstName = document.getElementById('fisrtName').value.trim();
         if (!firstName) {
             document.getElementById('firstNameError').textContent = 'First Name is required';
             isValid = false;
         }
 
+        // Validate Last Name
         const lastName = document.getElementById('lastName').value.trim();
         if (!lastName) {
             document.getElementById('lastNameError').textContent = 'Last Name is required';
             isValid = false;
         }
         
+        // Validate Email
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+            document.getElementById('emailError').textContent = 'Email is required';
+            isValid = false;
+        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            isValid = false;
+        }
+
+        //Validate Phone Number
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        if (!lastName) {
+            document.getElementById('phoneNumberError').textContent = 'Phone Number is required';
+            isValid = false;
+        }
+
         // Validate Job Title
         const jobTitle = document.getElementById('jobTitle').value.trim();
         if (!jobTitle) {
@@ -39,16 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const department = document.getElementById('department').value;
         if (!department) {
             document.getElementById('departmentError').textContent = 'Department is required';
-            isValid = false;
-        }
-        
-        // Validate Email
-        const email = document.getElementById('email').value.trim();
-        if (!email) {
-            document.getElementById('emailError').textContent = 'Email is required';
-            isValid = false;
-        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
             isValid = false;
         }
         
@@ -74,10 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return {
             firstName: document.getElementById('firstName').value.trim(),
             lastName: document.getElementById('lastName').value.trim(),
-            jobTitle: document.getElementById('jobTitle').value.trim(),
-            department: document.getElementById('department').value,
             email: document.getElementById('email').value.trim(),
             phoneNumber: document.getElementById('phoneNumber').value.trim(),
+            jobTitle: document.getElementById('jobTitle').value.trim(),
+            department: document.getElementById('department').value,
             employmentStatus: document.getElementById('employmentStatus').value,
             startDate: document.getElementById('startDate').value,
             endDate: document.getElementById('endDate').value,
@@ -109,9 +117,10 @@ document.addEventListener('DOMContentLoaded', function() {
             row.innerHTML = `
                 <td>${entry.firstName}</td>
                 <td>${entry.lastName}</td>
+                <td>${entry.email}</td>
+                <td>${entry.phoneNumber}</td>
                 <td>${entry.jobTitle}</td>
                 <td>${entry.department}</td>
-                <td>${entry.email}</td>
                 <td>${entry.employmentStatus}</td>
                 <td>${formatDate(entry.startDate)}</td>
             `;
