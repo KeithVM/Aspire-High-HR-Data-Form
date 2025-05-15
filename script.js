@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         //Validate Phone Number
         const phoneNumber = document.getElementById('phoneNumber').value.trim();
-        if (!lastName) {
+        if (!phoneNumber) {
             document.getElementById('phoneNumberError').textContent = 'Phone Number is required';
             isValid = false;
         }
