@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Validate Full Name
-        const fullName = document.getElementById('fullName').value.trim();
-        if (!fullName) {
-            document.getElementById('fullNameError').textContent = 'Full Name is required';
+        const firstName = document.getElementById('fisrtName').value.trim();
+        if (!firstName) {
+            document.getElementById('firstNameError').textContent = 'First Name is required';
+            isValid = false;
+        }
+
+        const lastName = document.getElementById('lastName').value.trim();
+        if (!lastName) {
+            document.getElementById('lastNameError').textContent = 'Last Name is required';
             isValid = false;
         }
         
