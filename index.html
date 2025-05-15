@@ -46,38 +46,76 @@
                 <span class="error-message" id="genderError"></span>
             </div>
 
-            
+            <div class="form-group">
+                <label for="university">University <span class="required">*</span></label>
+                <select id="university" name="university" required>
+                    <option value="">University</option>
+                    <option value="CCC">CCC</option>
+                    <option value="Lesley University">Lesley University</option>
+                    <option value="NYIT">NYIT</option>
+                    <option value="Rowan University">Rowan University</option>
+                    <option value="Monmouth University">Monmouth University</option>
+                    <option value="NJIT">NJIT</option>
+                    <option value="Pace University">Pace University</option>
+                    <option value="William Paterson University">William Paterson University</option>
+                    <option value="Rutgers-Newark">Rutgers-Newark</option>
+                    <option value="Millersville University">Millersville University</option>
+                    <option value="Saint Elizabeth University">Saint Elizabeth University</option>
+                    <option value="Ramapo College">Ramapo College</option>
+                    <option value="Fairleigh Dickinson University">Fairleigh Dickinson University</option>
+                    <option value="Kean University">Kean University</option>
+                    <option value="Rutgers-NB">Rutgers-NB</option>
+                    <option value="NYCCT">NYCCT</option>
+                    <option value="Houston Christian University">Houston Christian University</option>
+                    <option value="Rutgers University">Rutgers University</option>
+                    <option value="Montclair State University">Montclair State University</option>
+                    <option value="Skidmore College">Skidmore College</option>
+                    <option value="Boston University">Boston University</option>
+                    <option value="BayPath University">BayPath University</option>
+                    <option value="University at Buffalo">University at Buffalo</option>
+                </select>
+                <span class="error-message" id="universityError"></span>
+            </div>
             
             <div class="form-group">
-                <label for="jobTitle">Job Title <span class="required">*</span></label>
-                <input type="text" id="jobTitle" name="jobTitle" required>
+                <label for="jobTitle">Position Applied <span class="required">*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="">Position</option>
+                    <option value="Unpaid Intern">Unpaid Intern</option>
+                    <option value="Work Study">Work Study</option>
+                </select>
                 <span class="error-message" id="jobTitleError"></span>
             </div>
             
             <div class="form-group">
                 <label for="department">Department <span class="required">*</span></label>
-                <select id="department" name="department" required>
-                    <option value="">Select Department</option>
-                    <option value="HR">HR</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Marketing">Marketing</option>
-                </select>
+                <input type="text" id="department" name="department" required>
                 <span class="error-message" id="departmentError"></span>
             </div>
             
             <div class="form-group">
-                <label for="employmentStatus">Employment Status <span class="required">*</span></label>
-                <select id="employmentStatus" name="employmentStatus" required>
+                <label for="candidateSource">Candidate Source <span class="required">*</span></label>
+                <input type="text" id="candidateSource" name="candidateSource" required>
+                <span class="error-message" id="candidateSourceError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="applicationStatus">Application Status <span class="required">*</span></label>
+                <select id="applicationStatus" name="applicationStatus" required>
                     <option value="">Select Status</option>
-                    <option value="Full-Time">Full-Time</option>
-                    <option value="Part-Time">Part-Time</option>
-                    <option value="Contractor">Contractor</option>
-                    <option value="Intern">Intern</option>
+                    <option value="Rejected">Received</option>
+                    <option value="Interviewing">Interviewing</option>
+                    <option value="Hired">Hired</option>
+                    <option value="Rejected">Rejected</option>
                 </select>
-                <span class="error-message" id="employmentStatusError"></span>
+                <span class="error-message" id="applicationStatusError"></span>
             </div>
             
+            <div class="form-group">
+                <label for="interviewFeedback">Interview Feedback </label>
+                <textarea type="text" id="interviewFeedback" name="interviewFeedback" rows="4"></textarea>
+            </div>
+
             <div class="form-group">
                 <label for="startDate">Start Date <span class="required">*</span></label>
                 <input type="date" id="startDate" name="startDate" required>
@@ -87,11 +125,6 @@
             <div class="form-group">
                 <label for="endDate">End Date</label>
                 <input type="date" id="endDate" name="endDate">
-            </div>
-            
-            <div class="form-group">
-                <label for="notes">Notes</label>
-                <textarea id="notes" name="notes" rows="4"></textarea>
             </div>
             
             <div class="form-group">
@@ -110,10 +143,12 @@
                         <th>Email-ID</th>
                         <th>Phone Number</th>
                         <th>Gender</th>
-                        <th>Job Title</th>
+                        <th>University</th>
+                        <th>Position Applied</th>
                         <th>Department</th>
-                        <th>Employment Status</th>
+                        <th>Application Status</th>
                         <th>Start Date</th>
+                        <th>End Date</th>
                     </tr>
                 </thead>
                 <tbody id="entriesTableBody">

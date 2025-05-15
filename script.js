@@ -67,10 +67,17 @@ document.addEventListener('DOMContentLoaded', function() {
             isValid = false;
         }
         
-        // Validate Employment Status
-        const employmentStatus = document.getElementById('employmentStatus').value;
-        if (!employmentStatus) {
-            document.getElementById('employmentStatusError').textContent = 'Employment Status is required';
+        //Validate Candidate Source
+        const candidateSource = document.getElementById('candidateSource').value;
+        if (!candidateSource) {
+            document.getElementById('candidateSourceError').textContent = 'Candidate Source is required';
+            isValid = false;
+        }
+
+        // Validate Application Status
+        const applicationStatus = document.getElementById('applicationStatus').value;
+        if (!applicationStatus) {
+            document.getElementById('applicationStatusError').textContent = 'Application Status is required';
             isValid = false;
         }
         
@@ -94,10 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
             gender: document.getElementById('gender').value.trim(),
             jobTitle: document.getElementById('jobTitle').value.trim(),
             department: document.getElementById('department').value,
-            employmentStatus: document.getElementById('employmentStatus').value,
+            candidateSource: document.getElementById('candidateSource').value,
+            applicationStatus: document.getElementById('applicationStatus').value,
+            interviewFeedback: document.getElementById('interviewFeedback').value.trim(),
             startDate: document.getElementById('startDate').value,
-            endDate: document.getElementById('endDate').value,
-            notes: document.getElementById('notes').value.trim()
+            endDate: document.getElementById('endDate').value
         };
     }
     
@@ -126,10 +134,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${entry.firstName}</td>
                 <td>${entry.lastName}</td>
                 <td>${entry.email}</td>
-                <td>${entry.gender}</td>
                 <td>${entry.phoneNumber}</td>
+                <td>${entry.gender}</td>
                 <td>${entry.jobTitle}</td>
                 <td>${entry.department}</td>
+                <td>${entry.candidateSource}</td>
                 <td>${entry.employmentStatus}</td>
                 <td>${formatDate(entry.startDate)}</td>
             `;
