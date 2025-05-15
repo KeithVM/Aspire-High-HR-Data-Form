@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to collect form data
     function collectFormData() {
         return {
-            fullName: document.getElementById('fullName').value.trim(),
+            firstName: document.getElementById('firstName').value.trim(),
+            lastName: document.getElementById('lastName').value.trim(),
             jobTitle: document.getElementById('jobTitle').value.trim(),
             department: document.getElementById('department').value,
             email: document.getElementById('email').value.trim(),
@@ -106,7 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             row.innerHTML = `
-                <td>${entry.fullName}</td>
+                <td>${entry.firstName}</td>
+                <td>${entry.lastName}</td>
                 <td>${entry.jobTitle}</td>
                 <td>${entry.department}</td>
                 <td>${entry.email}</td>
