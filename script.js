@@ -145,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
             entriesTableBody.appendChild(row);
         });
     }
-    
+    //https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec
+
     // Form submission handler
     employeeForm.addEventListener('submit', function(event) {
         // Prevent the default form submission
@@ -153,17 +154,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validate the form
         if (validateForm()) {
-            // Collect form data
-            const employeeData = collectFormData();
-            
-            // Log the data to console
-            console.log('Employee Data:', employeeData);
-            
-            // Add to entries array
-            employeeEntries.push(employeeData);
-            
-            // Update the table
-            updateEntriesTable();
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec';
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(employeeData)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Success:', result);
+                employeeEntries.push(employeeData);
+                updateEntriesTable();
+                clearForm();
+            })
+            .catch(error => {
+                console.error('Error submitting to Google Sheet:', error);
+            });
             
             // Clear the form
             clearForm();
