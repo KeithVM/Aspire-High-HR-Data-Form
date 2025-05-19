@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Validate First Name
-        const firstName = document.getElementById('fisrtName').value.trim();
+        const firstName = document.getElementById('firstName').value.trim();
         if (!firstName) {
             document.getElementById('firstNameError').textContent = 'First Name is required';
             isValid = false;
@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validate the form
         if (validateForm()) {
-
+            const employeeData = collectFormData();
+            
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec';
             fetch(scriptURL, {
                 method: 'POST',
@@ -172,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error submitting to Google Sheet:', error);
             });
             
-            // Clear the form
             clearForm();
         }
     });
