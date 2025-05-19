@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
             email: document.getElementById('email').value.trim(),
             phoneNumber: document.getElementById('phoneNumber').value.trim(),
             gender: document.getElementById('gender').value.trim(),
+            university: document.getElementById('university').value.trim(),
             jobTitle: document.getElementById('jobTitle').value.trim(),
             department: document.getElementById('department').value,
             candidateSource: document.getElementById('candidateSource').value,
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${entry.jobTitle}</td>
                 <td>${entry.department}</td>
                 <td>${entry.candidateSource}</td>
-                <td>${entry.employmentStatus}</td>
+                <td>${entry.applicationStatus}</td>
                 <td>${entry.timeToHire}</td>
             `;
             
@@ -155,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validate the form
         if (validateForm()) {
             const employeeData = collectFormData();
-            
+
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec';
             fetch(scriptURL, {
                 method: 'POST',
@@ -172,8 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Error submitting to Google Sheet:', error);
             });
-            
-            clearForm();
         }
     });
 });
