@@ -158,12 +158,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const employeeData = collectFormData();
 
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec';
+            const formData = new FormData();
+            for (const [key, value] of Object.entries(employeeData)) {
+                formData.append(key, value);
+            }
+
             fetch(scriptURL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(employeeData)
+                body: formData
             })
-            .then(response => response.json())
+            .then(response => response.text())
+
             .then(result => {
                 console.log('Success:', result);
                 employeeEntries.push(employeeData);
