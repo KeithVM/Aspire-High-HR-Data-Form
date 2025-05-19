@@ -94,18 +94,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to collect form data
     function collectFormData() {
         return {
-            firstName: document.getElementById('firstName').value.trim(),
-            lastName: document.getElementById('lastName').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            phoneNumber: document.getElementById('phoneNumber').value.trim(),
-            gender: document.getElementById('gender').value.trim(),
-            university: document.getElementById('university').value.trim(),
-            jobTitle: document.getElementById('jobTitle').value.trim(),
-            department: document.getElementById('department').value,
-            candidateSource: document.getElementById('candidateSource').value,
-            applicationStatus: document.getElementById('applicationStatus').value,
-            interviewFeedback: document.getElementById('interviewFeedback').value.trim(),
-            timeToHire: document.getElementById('timeToHire').value
+            "First Name": document.getElementById('firstName').value.trim(),
+            "Last Name": document.getElementById('lastName').value.trim(),
+            "Email-ID": document.getElementById('email').value.trim(),
+            "Phone": document.getElementById('phoneNumber').value.trim(),
+            "Gender": document.getElementById('gender').value,
+            "University": document.getElementById('university').value,
+            "Position Applied": document.getElementById('jobTitle').value,
+            "Department": document.getElementById('department').value,
+            "Candidate Source": document.getElementById('candidateSource').value,
+            "Application Status": document.getElementById('applicationStatus').value,
+            "Interview Feedback": document.getElementById('interviewFeedback').value.trim(),
+            "Time to Hire": document.getElementById('timeToHire').value
         };
     }
     
@@ -114,38 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         employeeForm.reset();
     }
     
-    // Function to update the entries table
-    function updateEntriesTable() {
-        // Clear existing table rows
-        entriesTableBody.innerHTML = '';
-        
-        // Add each entry to the table
-        employeeEntries.forEach(entry => {
-            const row = document.createElement('tr');
-            
-            // Format date for display
-            const formatDate = (dateString) => {
-                if (!dateString) return '';
-                const date = new Date(dateString);
-                return date.toLocaleDateString();
-            };
-            
-            row.innerHTML = `
-                <td>${entry.firstName}</td>
-                <td>${entry.lastName}</td>
-                <td>${entry.email}</td>
-                <td>${entry.phoneNumber}</td>
-                <td>${entry.gender}</td>
-                <td>${entry.jobTitle}</td>
-                <td>${entry.department}</td>
-                <td>${entry.candidateSource}</td>
-                <td>${entry.applicationStatus}</td>
-                <td>${entry.timeToHire}</td>
-            `;
-            
-            entriesTableBody.appendChild(row);
-        });
-    }
     //https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec
 
     // Form submission handler
@@ -157,27 +125,27 @@ document.addEventListener('DOMContentLoaded', function() {
         if (validateForm()) {
             const employeeData = collectFormData();
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzv43vtvP6jvMWZs5rN2KGjFsSaamlOwBTKI2-kg16D89RhahRpA0Y1x5kGieVDKca9/exec';
-            const formData = new FormData();
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwbL2K-BEhZ2yq8qqbE3RY9lCaepstIORXDe0BRIQsQpq9-HQ6XYRv1IbNJ41gDqew/exec';
+            const formData = new URLSearchParams();
             for (const [key, value] of Object.entries(employeeData)) {
                 formData.append(key, value);
             }
 
             fetch(scriptURL, {
                 method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: formData
             })
             .then(response => response.text())
-
             .then(result => {
-                console.log('Success:', result);
+                console.log('Response from script:', result);
                 employeeEntries.push(employeeData);
-                updateEntriesTable();
                 clearForm();
             })
             .catch(error => {
                 console.error('Error submitting to Google Sheet:', error);
             });
+
         }
     });
 });

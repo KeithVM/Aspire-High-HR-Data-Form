@@ -13,31 +13,31 @@
         <form id="employeeForm">
             <div class="form-group">
                 <label for="firstName">First Name <span class="required">*</span></label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="First Name" required>
                 <span class="error-message" id="lastNameError"></span>
             </div>
 
             <div class="form-group">
                 <label for="lastName">Last Name <span class="required">*</span></label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="Last Name" required>
                 <span class="error-message" id="lastNameError"></span>
             </div>
 
             <div class="form-group">
                 <label for="email">Email-ID <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="Email-ID" required>
                 <span class="error-message" id="emailError"></span>
             </div>
 
             <div class="form-group">
                 <label for="phoneNumber">Phone Number <span class="required">*</span></label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                <input type="tel" id="phoneNumber" name="Phone" required>
                 <span class="error-message" id="phoneNumberError"></span>
             </div>
 
             <div class="form-group">
                 <label for="gender">Gender <span class="required">*</span></label>
-                <select id="gender" name="gender" required>
+                <select id="gender" name="Gender" required>
                     <option value="">Gender</option>
                     <option value="M">M</option>
                     <option value="F">F</option>
@@ -48,7 +48,7 @@
 
             <div class="form-group">
                 <label for="university">University <span class="required">*</span></label>
-                <select id="university" name="university" required>
+                <select id="university" name="University" required>
                     <option value="">University</option>
                     <option value="CCC">CCC</option>
                     <option value="Lesley University">Lesley University</option>
@@ -79,7 +79,7 @@
             
             <div class="form-group">
                 <label for="jobTitle">Position Applied <span class="required">*</span></label>
-                <select id="jobTitle" name="jobTitle" required>
+                <select id="jobTitle" name="Position Applied" required>
                     <option value="">Position</option>
                     <option value="Unpaid Intern">Unpaid Intern</option>
                     <option value="Work Study">Work Study</option>
@@ -89,19 +89,19 @@
             
             <div class="form-group">
                 <label for="department">Department <span class="required">*</span></label>
-                <input type="text" id="department" name="department" required>
+                <input type="text" id="department" name="Department" required>
                 <span class="error-message" id="departmentError"></span>
             </div>
             
             <div class="form-group">
                 <label for="candidateSource">Candidate Source <span class="required">*</span></label>
-                <input type="text" id="candidateSource" name="candidateSource" required>
+                <input type="text" id="candidateSource" name="Candidate Source" required>
                 <span class="error-message" id="candidateSourceError"></span>
             </div>
 
             <div class="form-group">
                 <label for="applicationStatus">Application Status <span class="required">*</span></label>
-                <select id="applicationStatus" name="applicationStatus" required>
+                <select id="applicationStatus" name="Application Status" required>
                     <option value="">Select Status</option>
                     <option value="Rejected">Received</option>
                     <option value="Interviewing">Interviewing</option>
@@ -113,12 +113,12 @@
             
             <div class="form-group">
                 <label for="interviewFeedback">Interview Feedback </label>
-                <textarea type="text" id="interviewFeedback" name="interviewFeedback" rows="4"></textarea>
+                <textarea type="text" id="interviewFeedback" name="Interview Feedback" rows="4"></textarea>
             </div>
 
             <div class="form-group">
                 <label for="timeToHire">Time To Hire <span class="required">*</span></label>
-                <input type="text" id="timeToHire" name="timeToHire" required>
+                <input type="text" id="timeToHire" name="Time to Hire" required>
                 <span class="error-message" id="timeToHireError"></span>
             </div>
             
@@ -128,28 +128,6 @@
             </div>
         </form>
         
-        <div class="entries-section">
-            <h2>Submitted Entries</h2>
-            <table id="entriesTable">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email-ID</th>
-                        <th>Phone Number</th>
-                        <th>Gender</th>
-                        <th>University</th>
-                        <th>Position Applied</th>
-                        <th>Department</th>
-                        <th>Application Status</th>
-                        <th>Time To Hire</th>
-                    </tr>
-                </thead>
-                <tbody id="entriesTableBody">
-                    <!-- Entries will be added here dynamically -->
-                </tbody>
-            </table>
-        </div>
     </div>
     
     <script src="script.js"></script>
