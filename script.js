@@ -7,88 +7,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if(recruitmentForm) {
         function validateForm() {
-        let isValid = true;
-        
-        // Clear previous error messages
-        const errorElements = document.querySelectorAll('.error-message');
-        errorElements.forEach(element => {
-            element.textContent = '';
-        });
-        
-        // Validate First Name
-        const firstName = document.getElementById('firstName').value.trim();
-        if (!firstName) {
-            document.getElementById('firstNameError').textContent = 'First Name is required';
-            isValid = false;
-        }
+            let isValid = true;
 
-        // Validate Last Name
-        const lastName = document.getElementById('lastName').value.trim();
-        if (!lastName) {
-            document.getElementById('lastNameError').textContent = 'Last Name is required';
-            isValid = false;
-        }
-        
-        // Validate Email
-        const email = document.getElementById('email').value.trim();
-        if (!email) {
-            document.getElementById('emailError').textContent = 'Email is required';
-            isValid = false;
-        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
-            isValid = false;
-        }
+            // Clear all previous error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach((el) => el.textContent = '');
 
-        //Validate Phone Number
-        const phoneNumber = document.getElementById('phoneNumber').value.trim();
-        if (!phoneNumber) {
-            document.getElementById('phoneNumberError').textContent = 'Phone Number is required';
-            isValid = false;
-        }
+            function check(id, message) {
+                const val = document.getElementById(id).value.trim();
+                if (!val) {
+                document.getElementById(id + 'Error').textContent = message;
+                isValid = false;
+                }
+                return val;
+            }
 
-        //Validate Gender
-        const gender = document.getElementById('gender').value.trim();
-        if (!gender) {
-            document.getElementById('genderError').textContent = 'Gender is required';
-            isValid = false;
-        }
+            check('firstName', 'First Name is required');
+            check('lastName', 'Last Name is required');
+            const email = check('email', 'Email is required');
+            if (email && !/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                isValid = false;
+            }
+            check('phoneNumber', 'Phone Number is required');
+            check('gender', 'Gender is required');
+            check('jobTitle', 'Job Title is required');
+            check('department', 'Department is required');
+            check('candidateSource', 'Candidate Source is required');
+            check('applicationStatus', 'Application Status is required');
+            check('timeToHire', 'Time To Hire is required');
 
-        // Validate Job Title
-        const jobTitle = document.getElementById('jobTitle').value.trim();
-        if (!jobTitle) {
-            document.getElementById('jobTitleError').textContent = 'Job Title is required';
-            isValid = false;
-        }
-        
-        // Validate Department
-        const department = document.getElementById('department').value;
-        if (!department) {
-            document.getElementById('departmentError').textContent = 'Department is required';
-            isValid = false;
-        }
-        
-        //Validate Candidate Source
-        const candidateSource = document.getElementById('candidateSource').value;
-        if (!candidateSource) {
-            document.getElementById('candidateSourceError').textContent = 'Candidate Source is required';
-            isValid = false;
-        }
-
-        // Validate Application Status
-        const applicationStatus = document.getElementById('applicationStatus').value;
-        if (!applicationStatus) {
-            document.getElementById('applicationStatusError').textContent = 'Application Status is required';
-            isValid = false;
-        }
-
-        // Validate Time To Hire
-        const timeToHire = document.getElementById('timeToHire').value;
-        if (!timeToHire) {
-            document.getElementById('timeToHireError').textContent = 'Time To Hire is required';
-            isValid = false;
-        }
-        
-        return isValid;
+            return isValid;
         }
         
         // Function to collect form data
@@ -105,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Candidate Source": document.getElementById('candidateSource').value,
                 "Application Status": document.getElementById('applicationStatus').value,
                 "Interview Feedback": document.getElementById('interviewFeedback').value.trim(),
-                "Time to Hire": document.getElementById('timeToHire').value
+                "Time to Hire": document.getElementById('timeToHire').value,
+                "sheetName": "Recruitment Data"
             };
         }
         
@@ -208,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "Employment Type": document.getElementById('employmentType').value.trim(),
             "Performance Appraisal Date": document.getElementById('appraisalDate').value,
             "Training and Development Records": document.getElementById('trainingRecords').value.trim(),
-            "sheetName": "Form Responses 1"
+            "sheetName": "Employee Information"
         };
         }
 
@@ -225,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
             for (const [key, value] of Object.entries(formDataObj)) {
                 formData.append(key, value);
             }
-            formData.append("sheetName", "Employee Information");
 
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwbL2K-BEhZ2yq8qqbE3RY9lCaepstIORXDe0BRIQsQpq9-HQ6XYRv1IbNJ41gDqew/exec';
 
@@ -295,11 +244,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (validateForm()) {
             const formDataObj = collectFormData();
             const formData = new URLSearchParams();
-
             for (const [key, value] of Object.entries(formDataObj)) {
                 formData.append(key, value);
             }
-            formData.append("sheetName", "Attendance and Leave Data");
 
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwbL2K-BEhZ2yq8qqbE3RY9lCaepstIORXDe0BRIQsQpq9-HQ6XYRv1IbNJ41gDqew/exec';
 
