@@ -3,46 +3,92 @@ document.addEventListener('DOMContentLoaded', function() {
     const employeeHRForm = document.getElementById('employeeHRForm');
     const attendanceForm = document.getElementById('attendanceForm');
 
+    let employeeEntries = [];
+    
     if(recruitmentForm) {
-        const entriesTableBody = document.getElementById('entriesTableBody');
-        
-        // Array to store submitted entries
-        let employeeEntries = [];
-        
-        // Form validation function
         function validateForm() {
-            let isValid = true;
+        let isValid = true;
+        
+        // Clear previous error messages
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(element => {
+            element.textContent = '';
+        });
+        
+        // Validate First Name
+        const firstName = document.getElementById('firstName').value.trim();
+        if (!firstName) {
+            document.getElementById('firstNameError').textContent = 'First Name is required';
+            isValid = false;
+        }
 
-            // Clear all previous error messages
-            const errorElements = document.querySelectorAll('.error-message');
-            errorElements.forEach((el) => el.textContent = '');
+        // Validate Last Name
+        const lastName = document.getElementById('lastName').value.trim();
+        if (!lastName) {
+            document.getElementById('lastNameError').textContent = 'Last Name is required';
+            isValid = false;
+        }
+        
+        // Validate Email
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+            document.getElementById('emailError').textContent = 'Email is required';
+            isValid = false;
+        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            isValid = false;
+        }
 
-            function check(id, message) {
-                const val = document.getElementById(id).value.trim();
-                if (!val) {
-                document.getElementById(id + 'Error').textContent = message;
-                isValid = false;
-                }
-                return val;
-            }
+        //Validate Phone Number
+        const phoneNumber = document.getElementById('phoneNumber').value.trim();
+        if (!phoneNumber) {
+            document.getElementById('phoneNumberError').textContent = 'Phone Number is required';
+            isValid = false;
+        }
 
-            check('firstName', 'First Name is required');
-            check('lastName', 'Last Name is required');
-            const email = check('email', 'Email is required');
-            if (email && !/^\S+@\S+\.\S+$/.test(email)) {
-                document.getElementById('emailError').textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
-            check('phoneNumber', 'Phone Number is required');
-            check('gender', 'Gender is required');
-            check('jobTitle', 'Job Title is required');
-            check('department', 'Department is required');
-            check('candidateSource', 'Candidate Source is required');
-            check('applicationStatus', 'Application Status is required');
-            check('timeToHire', 'Time To Hire is required');
+        //Validate Gender
+        const gender = document.getElementById('gender').value.trim();
+        if (!gender) {
+            document.getElementById('genderError').textContent = 'Gender is required';
+            isValid = false;
+        }
 
-            return isValid;
+        // Validate Job Title
+        const jobTitle = document.getElementById('jobTitle').value.trim();
+        if (!jobTitle) {
+            document.getElementById('jobTitleError').textContent = 'Job Title is required';
+            isValid = false;
+        }
+        
+        // Validate Department
+        const department = document.getElementById('department').value;
+        if (!department) {
+            document.getElementById('departmentError').textContent = 'Department is required';
+            isValid = false;
+        }
+        
+        //Validate Candidate Source
+        const candidateSource = document.getElementById('candidateSource').value;
+        if (!candidateSource) {
+            document.getElementById('candidateSourceError').textContent = 'Candidate Source is required';
+            isValid = false;
+        }
 
+        // Validate Application Status
+        const applicationStatus = document.getElementById('applicationStatus').value;
+        if (!applicationStatus) {
+            document.getElementById('applicationStatusError').textContent = 'Application Status is required';
+            isValid = false;
+        }
+
+        // Validate Time To Hire
+        const timeToHire = document.getElementById('timeToHire').value;
+        if (!timeToHire) {
+            document.getElementById('timeToHireError').textContent = 'Time To Hire is required';
+            isValid = false;
+        }
+        
+        return isValid;
         }
         
         // Function to collect form data
@@ -84,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 for (const [key, value] of Object.entries(employeeData)) {
                     formData.append(key, value);
                 }
-                formData.append("sheetName", "Recruitment Data");
 
                 fetch(scriptURL, {
                     method: 'POST',
@@ -105,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     if (employeeHRForm) {
-        const employeeEntries = [];
 
         function validateForm() {
         let isValid = true;
