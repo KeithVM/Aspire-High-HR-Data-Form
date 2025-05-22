@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Employee HR Data Entry Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="recruitmentData.html">Recruitment Form</a></li>
+                <li><a href="attendance.html">Attendance Form</a></li>
+                <li><a href="employeeHR.html">Employee HR Form</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="form_area">
+                <div class="form_title"><h1>Employee HR Form</h1></div>
+
+                <form id="employeeHRForm">
+                    <div class="form-group">
+                        <label for="employeeID">Employee ID <span class="required">*</span></label>
+                        <input type="text" id="employeeID" name="Employee ID" required placeholder="Enter Employee ID">
+                        <span class="error-message" id="employeeIDError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="First Name" required placeholder="Enter First Name">
+                        <span class="error-message" id="firstNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="Last Name" required placeholder="Enter Last Name">
+                        <span class="error-message" id="lastNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department <span class="required">*</span></label>
+                        <input type="text" id="department" name="Department" required placeholder="Enter Department">
+                        <span class="error-message" id="departmentError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Position <span class="required">*</span></label>
+                        <input type="text" id="position" name="Position" required placeholder="Enter Position">
+                        <span class="error-message" id="positionError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dob" name="Date of Birth" required>
+                        <span class="error-message" id="dobError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <input type="text" id="gender" name="Gender" required placeholder="Enter Gender">
+                        <span class="error-message" id="genderError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maritalStatus">Marital Status <span class="required">*</span></label>
+                        <input type="text" id="maritalStatus" name="Marital Status" required placeholder="Enter Marital Status">
+                        <span class="error-message" id="maritalStatusError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="Email" required placeholder="Enter Email">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phoneNumber" name="Phone Number" required placeholder="Enter Phone Number">
+                        <span class="error-message" id="phoneNumberError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hireDate">Hire Date <span class="required">*</span></label>
+                        <input type="date" id="hireDate" name="Hire Date" required>
+                        <span class="error-message" id="hireDateError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salary">Salary <span class="required">*</span></label>
+                        <input type="number" id="salary" name="Salary" required placeholder="Enter Salary">
+                        <span class="error-message" id="salaryError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bonus">Bonus</label>
+                        <input type="number" id="bonus" name="Bonus" placeholder="Enter Bonus Amount">
+                        <span class="error-message" id="bonusError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="benefits">Benefits</label>
+                        <input type="text" id="benefits" name="Benefits" placeholder="Enter Benefits Info">
+                        <span class="error-message" id="benefitsError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employmentType">Employment Type <span class="required">*</span></label>
+                        <input type="text" id="employmentType" name="Employment Type" required placeholder="Enter Employment Type">
+                        <span class="error-message" id="employmentTypeError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appraisalDate">Performance Appraisal Date</label>
+                        <input type="date" id="appraisalDate" name="Performance Appraisal Date">
+                        <span class="error-message" id="appraisalDateError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingRecords">Training and Development Records</label>
+                        <textarea id="trainingRecords" name="Training and Development Records" rows="4" placeholder="Enter Training/Development Info"></textarea>
+                        <span class="error-message" id="trainingRecordsError"></span>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" id="submitBtn">Submit</button>
+                        <button type="reset" id="resetBtn">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

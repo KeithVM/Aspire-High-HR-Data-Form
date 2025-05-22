@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Attendance and Leave Data Form</title>
+    <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+        <li><a href="recruitmentData.html">Recruitment Form</a></li>
+        <li><a href="attendance.html">Attendance Form</a></li>
+        <li><a href="employeeHR.html">Employee HR Form</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="form_area">
+        <div class="form_title"><h1>Attendance and Leave Form</h1></div>
+
+        <form id="attendanceForm">
+            <div class="form-group">
+            <label for="employeeID">Employee ID <span class="required">*</span></label>
+            <input type="text" id="employeeID" name="Employee ID" required placeholder="Enter Employee ID">
+            <span class="error-message" id="employeeIDError"></span>
+            </div>
+
+            <div class="form-group">
+            <label for="date">Date <span class="required">*</span></label>
+            <input type="date" id="date" name="Date" required>
+            <span class="error-message" id="dateError"></span>
+            </div>
+
+            <div class="form-group custom-select">
+            <label for="attendanceStatus">Attendance Status <span class="required">*</span></label>
+            <select id="attendanceStatus" name="Attendance Status" required>
+                <option value="">Select Status</option>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+            <span class="error-message" id="attendanceStatusError"></span>
+            </div>
+
+            <div class="form-group custom-select">
+            <label for="leaveType">Leave Type</label>
+            <select id="leaveType" name="Leave Type">
+                <option value="">None</option>
+                <option value="Vacation">Vacation</option>
+                <option value="Sick">Sick</option>
+                <option value="Personal">Personal</option>
+            </select>
+            <span class="error-message" id="leaveTypeError"></span>
+            </div>
+
+            <div class="form-group">
+            <label for="overtimeHours">Overtime Hours Worked</label>
+            <input type="number" id="overtimeHours" name="Overtime Hours Worked" placeholder="Enter Overtime Hours">
+            <span class="error-message" id="overtimeHoursError"></span>
+            </div>
+
+            <div class="form-group">
+            <label for="leaveBalance">Leave Balance</label>
+            <input type="number" id="leaveBalance" name="Leave Balance" placeholder="Enter Leave Balance">
+            <span class="error-message" id="leaveBalanceError"></span>
+            </div>
+
+            <div class="button-group">
+            <button type="submit" id="submitBtn">Submit</button>
+            <button type="reset" id="resetBtn">Reset</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee HR Data Entry Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="recruitmentData.html">Recruitment Form</a></li>
+            <li><a href="attendance.html">Attendance Form</a></li>
+            <li><a href="employeeHR.html">Employee HR Form</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="form_area">
+            <div class="form_title"><h1>Recruitment Form</h1></div>
+            
+            
+            <form id="employeeForm">
+                <div class="form-group">
+                    <label for="firstName">First Name <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="First Name" required placeholder="Enter First Name">
+                    <span class="error-message" id="firstNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="Last Name" required placeholder="Enter Last Name">
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email-ID <span class="required">*</span></label>
+                    <input type="email" id="email" name="Email-ID" required placeholder="Enter Email-ID">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phoneNumber" name="Phone" required placeholder="Enter Phone Number">
+                    <span class="error-message" id="phoneNumberError"></span>
+                </div>
+
+                <div class="form-group custom-select">
+                    <label for="gender">Gender <span class="required">*</span></label>
+                    <select id="gender" name="Gender" required>
+                        <option value="">Gender</option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error-message" id="genderError"></span>
+                </div>
+
+                <div class="form-group custom-select">
+                    <label for="university">University <span class="required">*</span></label>
+                    <select id="university" name="University" required>
+                        <option value="">University</option>
+                        <option value="CCC">CCC</option>
+                        <option value="Lesley University">Lesley University</option>
+                        <option value="NYIT">NYIT</option>
+                        <option value="Rowan University">Rowan University</option>
+                        <option value="Monmouth University">Monmouth University</option>
+                        <option value="NJIT">NJIT</option>
+                        <option value="Pace University">Pace University</option>
+                        <option value="William Paterson University">William Paterson University</option>
+                        <option value="Rutgers-Newark">Rutgers-Newark</option>
+                        <option value="Millersville University">Millersville University</option>
+                        <option value="Saint Elizabeth University">Saint Elizabeth University</option>
+                        <option value="Ramapo College">Ramapo College</option>
+                        <option value="Fairleigh Dickinson University">Fairleigh Dickinson University</option>
+                        <option value="Kean University">Kean University</option>
+                        <option value="Rutgers-NB">Rutgers-NB</option>
+                        <option value="NYCCT">NYCCT</option>
+                        <option value="Houston Christian University">Houston Christian University</option>
+                        <option value="Rutgers University">Rutgers University</option>
+                        <option value="Montclair State University">Montclair State University</option>
+                        <option value="Skidmore College">Skidmore College</option>
+                        <option value="Boston University">Boston University</option>
+                        <option value="BayPath University">BayPath University</option>
+                        <option value="University at Buffalo">University at Buffalo</option>
+                    </select>
+                    <span class="error-message" id="universityError"></span>
+                </div>
+                
+                <div class="form-group custom-select">
+                    <label for="jobTitle">Position Applied <span class="required">*</span></label>
+                    <select id="jobTitle" name="Position Applied" required>
+                        <option value="">Position</option>
+                        <option value="Unpaid Intern">Unpaid Intern</option>
+                        <option value="Work Study">Work Study</option>
+                    </select>
+                    <span class="error-message" id="jobTitleError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="department">Department <span class="required">*</span></label>
+                    <input type="text" id="department" name="Department" required placeholder="Enter Department">
+                    <span class="error-message" id="departmentError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="candidateSource">Candidate Source <span class="required">*</span></label>
+                    <input type="text" id="candidateSource" name="Candidate Source" required placeholder="Enter Candidate Source">
+                    <span class="error-message" id="candidateSourceError"></span>
+                </div>
+
+                <div class="form-group custom-select">
+                    <label for="applicationStatus">Application Status <span class="required">*</span></label>
+                    <select id="applicationStatus" name="Application Status" required>
+                        <option value="">Select Status</option>
+                        <option value="Rejected">Received</option>
+                        <option value="Interviewing">Interviewing</option>
+                        <option value="Hired">Hired</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                    <span class="error-message" id="applicationStatusError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interviewFeedback">Interview Feedback </label>
+                    <textarea type="text" id="interviewFeedback" name="Interview Feedback" rows="4" placeholder="Enter Interview Feedback"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeToHire">Time To Hire <span class="required">*</span></label>
+                    <input type="text" id="timeToHire" name="Time to Hire" required placeholder="Enter Time to Hire">
+                    <span class="error-message" id="timeToHireError"></span>
+                </div>
+                
+                <div class=" button-group">
+                    <button type="submit" id="submitBtn">Submit</button>
+                    <button type="reset" id="resetBtn">Reset</button>
+                </div>
+            </form>
+        </div>    
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
